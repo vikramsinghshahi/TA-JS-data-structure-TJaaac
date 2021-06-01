@@ -4,9 +4,59 @@ let userIds = [1230, 234, 1278, 984, 763, 900];
 
 // 1. Add all the values of numbers and userIds array into the new newly created array named `collection`
 
+let collection = [];
+
+let sum = 0;
+for ( number of numbers){
+    sum = sum + number
+}
+
+collection.push(sum);
+
+for ( userId of userIds){
+  sum = sum + userId
+}
+
+collection.push(sum);
+
+
 // 2. Add all the even numbers from both arrays numbers and userIds into a newly created array named `evenCollection`
 
+let evenCollection = [];
+
+for(number of numbers){
+  if (number % 2 === 0){
+    evenCollection.push(`number` ,number);
+  }
+}
+
+for(userId of userIds){
+  if (userId % 2 === 0){
+    evenCollection.push( `userID`,userId);
+  }
+}
 // 3. Add all the odd numbers from both arrays numbers and userIds into a newly created array named `oddCollection`
+
+let oddCollection = [];
+
+
+for(number of numbers){
+  if (number % 2 !== 0){
+    sum = sum + number
+  }
+}
+
+oddCollection.push( sum , `sum of odd number`)
+
+
+for(userId of userIds){
+  if (userId % 2 !== 0){
+    sum = sum + userId
+  }
+}
+
+oddCollection.push( sum , `sum of odd userid`)
+
 
 /*
   @param means parameter
@@ -24,9 +74,20 @@ let userIds = [1230, 234, 1278, 984, 763, 900];
     times(5); // ['test', 'test', 'test', 'test', 'test']
 */
 
-function times() {
-  // Your code
+function times(a , b) {
+ if( typeof a === "number" && typeof b === "string"){
+   for ( i = 0; i < a; i++){
+     return [ a , b]
+   }
+ }
 }
+
+
+
+
+
+
+
 
 // Uncomment the code below and test the output
 
