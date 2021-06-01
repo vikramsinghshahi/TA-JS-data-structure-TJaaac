@@ -6,35 +6,39 @@ let userIds = [1230, 234, 1278, 984, 763, 900];
 
 let collection = [];
 
-let sum = 0;
+
 for ( number of numbers){
-    sum = sum + number
+  collection.push(number);
 }
 
-collection.push(sum);
 
 for ( userId of userIds){
-  sum = sum + userId
+  collection.push(userId);
 }
 
-collection.push(sum);
+console.log(collection);
 
 
 // 2. Add all the even numbers from both arrays numbers and userIds into a newly created array named `evenCollection`
 
 let evenCollection = [];
 
+let sum = 0;
+
 for(number of numbers){
   if (number % 2 === 0){
-    evenCollection.push(`number` ,number);
+    evenCollection.push(number);
   }
 }
 
 for(userId of userIds){
   if (userId % 2 === 0){
-    evenCollection.push( `userID`,userId);
+    evenCollection.push(userId);
   }
 }
+
+
+console.log(evenCollection);
 // 3. Add all the odd numbers from both arrays numbers and userIds into a newly created array named `oddCollection`
 
 let oddCollection = [];
@@ -42,21 +46,19 @@ let oddCollection = [];
 
 for(number of numbers){
   if (number % 2 !== 0){
-    sum = sum + number
+    oddCollection.push( number)
+
   }
 }
-
-oddCollection.push( sum , `sum of odd number`)
 
 
 for(userId of userIds){
   if (userId % 2 !== 0){
-    sum = sum + userId
+    oddCollection.push( userId )
   }
 }
 
-oddCollection.push( sum , `sum of odd userid`)
-
+console.log(oddCollection);
 
 /*
   @param means parameter
@@ -74,19 +76,18 @@ oddCollection.push( sum , `sum of odd userid`)
     times(5); // ['test', 'test', 'test', 'test', 'test']
 */
 
-function times(a , b) {
- if( typeof a === "number" && typeof b === "string"){
-   for ( i = 0; i < a; i++){
-     return [ a , b]
+function times(noOfTimes , character = "test") {
+  if ( character < 1){ return []};
+
+  let final = [];
+   for ( let  i = 0; i < noOfTimes; i++){
+      final.push(character);
    }
- }
-}
+   return final;
+ } 
 
 
-
-
-
-
+console.log(times( 5));
 
 
 // Uncomment the code below and test the output
@@ -97,6 +98,9 @@ function times(a , b) {
 // console.log(times(5)); // ['test', 'test', 'test', 'test', 'test']
 
 /*
+
+
+
 
  5. Write a function named revert which reverts the element of the input array. 
 
@@ -109,14 +113,19 @@ function times(a , b) {
     revert(['Ryan', 'John', 'Bran']); //['Bran', 'John', 'Ryan']
 */
 
-function revert() {
-  // your code
+function revert(arr) {
+  let final = [];
+  for ( let i = arr.length - 1 ; i >= 0 ; i--){
+     final.push(arr[i]);
+
+  }
+  return final
 }
 
 // Uncomment the code below and test the output
-// console.log(revert([1, 2, 3, 4])); // [4, 3, 2, 1]
-// console.log(revert(['a', 'd', 'c', 'b'])); // ['b', 'c', 'd', 'a']
-// console.log(revert(['Ryan', 'John', 'Bran'])); //['Bran', 'John', 'Ryan']
+ console.log(revert([1, 2, 3, 4])); // [4, 3, 2, 1]
+  console.log(revert(['a', 'd', 'c', 'b'])); // ['b', 'c', 'd', 'a']
+ console.log(revert(['Ryan', 'John', 'Bran'])); //['Bran', 'John', 'Ryan']
 
 /*
 
@@ -131,14 +140,31 @@ function revert() {
     clear(['Ryan', null, 0,  'John', 'Bran']); //['Bran', 'John', 'Ryan']
 */
 
-function clear() {
-  // your code
+function isWanted( value){
+  return value == null ||
+  value == undefined ||
+  value == "" ||
+  value == false ||
+  value == 0
+}
+
+
+function clear( arr) {
+  let final = [];
+
+  for( let value of arr){
+    if ( !isWanted(value)){
+      final.push(value)
+    }
+  }
+   
+  return final;
 }
 
 // Uncomment the code below and test the output
-// console.log(clear([1, 2, 3, 4, '', 0, null, undefined])); // [4, 3, 2, 1]
-// console.log(clear(['a', undefined, 'd', 0, 'c', 'b'])); // ['b', 'c', 'd', 'a']
-// console.log(clear(['Ryan', null, 0, 'John', 'Bran'])); //['Bran', 'John', 'Ryan']
+console.log(clear([1, 2, 3, 4, '', 0, null, undefined])); // [4, 3, 2, 1]
+ console.log(clear(['a', undefined, 'd', 0, 'c', 'b'])); // ['b', 'c', 'd', 'a']
+ console.log(clear(['Ryan', null, 0, 'John', 'Bran'])); //['Bran', 'John', 'Ryan']
 
 /*
 
@@ -154,11 +180,15 @@ function clear() {
     arrayToObj(['Ryan', 'John']); // {0: 'Ryan', 1: 'John'}
 */
 
-function arrayToObj() {
-  // your code
+function arrayToObj(arr) {
+  let final = {};
+  for ( let i = 0; i < arr.length ; i++){
+    final[i] = arr[i];
+  }
+  return final ;
 }
 
 // Uncomment the code below and test the output
-// console.log(arrayToObj([1, 2, 3, 4])); // {0: 1, 1: 2, 2: 3, 3: 4}
+ console.log(arrayToObj([1, 2, 3, 4])); // {0: 1, 1: 2, 2: 3, 3: 4}
 // console.log(arrayToObj(['a', undefined, 'd'])); // {0: 'a', 1: undefined, 2: 'd'}
 // console.log(arrayToObj(['Ryan', 'John'])); // {0: 'Ryan', 1: 'John'}
