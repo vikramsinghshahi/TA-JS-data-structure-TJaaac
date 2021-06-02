@@ -45,8 +45,8 @@ console.log(person == personTwo); // false
 console.log(person === personTwo); // false
 console.log(person.address === personTwo.address); // true
 console.log(person.address == personTwo.address); // true
-console.log(personTwo.address.city); // `San Jose`
-console.log(person.address.city); // `San Jose`
+console.log(personTwo.address.city); // `Navada`
+console.log(person.address.city); // `Navada`
 console.log(person.address.city == personTwo.address.city); // true
 ```
 
@@ -67,7 +67,7 @@ let person = {
 let personTwo = { ...person, address: { ...person.address } };
 
 person.firstName = 'Arya';
-person.city = 'Navada';
+person.address.city = 'Navada';
 
 console.log(personTwo.firstName); // "John"
 console.log(person.firstName); // "Arya"
@@ -77,8 +77,8 @@ console.log(person == personTwo); // false
 console.log(person === personTwo); // false
 console.log(person.address === personTwo.address); // false
 console.log(person.address == personTwo.address); // false
-console.log(personTwo.address.city); // `San Jose`
-console.log(person.address.city); // `San Jose`
+console.log(personTwo.address.city); //`San Jose`
+console.log(person.address.city); //  `Navada`
 console.log(person.address.city == personTwo.address.city); // false
 ```
 
@@ -104,7 +104,10 @@ let blogs = [
 ];
 
 
-let clonedBlogs = [...blogs];
+let clonedBlogs = [{...blogs[0]},
+          {...blogs[1]},
+         {...blogs[2]}
+];
 
 // Your code goes here
 ```
@@ -132,7 +135,9 @@ var questions = [
 ];
 
 
-let questionClone = [ ...question, responses : [...question.responses]]; 
+let questionClone = [ {...questions[0], responses : [...questions[0].responses]},
+{...questions[1], responses : [...questions[1].responses]}
+]; 
 // Your code goes here
 ```
 
@@ -159,6 +164,13 @@ var allBlogs = {
     },
   ],
 };
+
+let allBlogsClone = { ...allBlogs, 
+author :{ ...allBlogs.author}, 
+comments:[
+  {...allBlogs[0]} , {...allBlogs[1]}]  };
+
+
 
 // Your code goes here
 ```
@@ -192,6 +204,12 @@ let person = [
     },
   },
 ];
+
+
+let clonedPerson = [ {...person[0]},
+{...person[1]}
+
+]
 
 // Your code goes here
 ```
