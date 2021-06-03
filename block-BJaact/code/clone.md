@@ -206,10 +206,7 @@ let person = [
 ];
 
 
-let clonedPerson = [ {...person[0]},
-{...person[1]}
-
-]
+let clonedPerson = JSON.parse(JSON.stringify(person));
 
 // Your code goes here
 ```
@@ -217,8 +214,8 @@ let clonedPerson = [ {...person[0]},
 8. Write a function named `cloneObject` that accepts an object and returns the clone of the object
 
 ```js
-function cloneObject() {
-  // your code
+function cloneObject(obj) {
+ return JSON.parse(JSON.stringify(obj));
 }
 
 // Run the test below to check your function
